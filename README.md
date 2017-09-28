@@ -1,1 +1,1 @@
-# wp-bs-hreflang
+# WP bsHreflang - добавляет hreflang на страницы сайта
