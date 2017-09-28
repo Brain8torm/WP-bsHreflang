@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: bsHreflang
-Plugin URI: http://brain8torm.ru
+Plugin URI: https://github.com/Brain8torm/WP-bsHreflang
 Description: Плагин добавляет в <code>&lt;head&gt;</code> тег link с атрибутом hreflang
 Version: 1.0
 Author: Andrey Kudryashov (BrainStorm)
