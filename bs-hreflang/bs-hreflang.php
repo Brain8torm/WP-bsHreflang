@@ -12,8 +12,7 @@ Author URI: http://brain8torm.ru
 	function bs_hreflang_init() {
 		$hreflang_data = get_option( 'bs_hreflang_settings' );
 		$hreflang_line = explode("\n", str_replace("\r", "", $hreflang_data['bs_hreflang_textarea']));
-		//print_r( str_getcsv($csv['bs_hreflang_textarea']));
-		//print_r($ids);
+		
 		$data = array();
 		
 		foreach ( $hreflang_line as $line ) {
@@ -25,38 +24,12 @@ Author URI: http://brain8torm.ru
 			$url_param = parse_url($d[0], PHP_URL_QUERY);
 			$url = $url_path;
 			if ( $url_param ) $url .= '?' . $url_param;
-			//echo $url . '\n';
+
 			if ( $url == $_SERVER['REQUEST_URI'] ) {
-				//echo $d[1];
 				add_action('wp_head', 'bs_put_hreflang', 1);
 				do_action('wp_head', $d[1]);
 			}
 		}
-		//print_r( $_SERVER );
-		/*
-		require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-		
-		if($wpdb->get_var("SHOW TABLES LIKE 'wp_options';") == $wpdb->prefix.'options') {
-			$sql = "show table status like '". $wpdb->prefix . "options'";
-			$db_coll = $wpdb->get_row($sql, ARRAY_A);
-			
-		}
-		
-		$table_name = $wpdb->prefix."bs_hreflang";
-		$wpdb->query($sql);
-		if($wpdb->get_var("SHOW TABLES LIKE '" . $table_name. "'") != $table_name){
-			$sql = "CREATE TABLE IF NOT EXISTS `$table_name` (
-					  `id` int(11) NOT NULL AUTO_INCREMENT,
-					  `url` VARCHAR(255) NOT NULL,
-					  `hreflang` VARCHAR(255) NOT NULL,
-					  PRIMARY KEY (`id`)
-					) DEFAULT CHARSET=" . DB_CHARSET . " COLLATE=" . $db_coll['Collation'] . " AUTO_INCREMENT=1 ;";
-		
-			dbDelta($sql);
-		} else {
-			
-		}
-		*/
 
 	}
 	
@@ -67,9 +40,7 @@ Author URI: http://brain8torm.ru
 		register_setting( 'pluginPage', 'bs_hreflang_settings' );
 
 		add_settings_section(
-			'bs_hreflang_pluginPage_section', 
-			'',//__( 'Your section description', '222' ), 
-			'',//'bs_hreflang_settings_section_callback', 
+			'bs_hreflang_pluginPage_section',
 			'pluginPage'
 		);
 
